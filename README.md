@@ -56,7 +56,7 @@ shiftflow-frontend/
 
 ```bash
 # Clonar o repositório
-git clonehttps://github.com/charaodaniel/shiftflow-frontend.git
+git clone https://github.com/seu-usuario/shiftflow-frontend.git
 cd shiftflow-frontend
 
 # Instalar dependências
@@ -93,7 +93,7 @@ npm run preview
 
 1. **Fork/Clone do Repositório:**
    ```bash
-   git clone https://github.com/charaodaniel/shiftflow-frontend.git
+   git clone https://github.com/seu-usuario/shiftflow-frontend.git
    cd shiftflow-frontend
    ```
 
