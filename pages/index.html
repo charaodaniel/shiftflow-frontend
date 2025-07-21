@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShiftFlow - Sistema de Gestão de Escalas</title>
+    <meta name="description" content="Sistema completo para gestão de escalas, funcionários e motoristas. Simplifique o controle de turnos da sua empresa.">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shiftflow.vercel.app/">
+    <meta property="og:title" content="ShiftFlow - Sistema de Gestão de Escalas">
+    <meta property="og:description" content="Sistema completo para gestão de escalas, funcionários e motoristas.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://shiftflow.vercel.app/">
+    <meta property="twitter:title" content="ShiftFlow - Sistema de Gestão de Escalas">
+    <meta property="twitter:description" content="Sistema completo para gestão de escalas, funcionários e motoristas.">
+</head>
+<body class="h-full bg-gray-50 dark:bg-gray-900">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                            🚀 ShiftFlow
+                        </h1>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div id="theme-toggle-container"></div>
+                    <a href="/login" class="btn-primary">
+                        Entrar
+                    </a>
+                    <a href="/register" class="btn-outline">
+                        Criar Conta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-white dark:bg-gray-800 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 bg-white dark:bg-gray-800 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white dark:text-gray-800 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                    <polygon points="50,0 100,0 50,100 0,100" />
+                </svg>
+
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+                            <span class="block xl:inline">Gestão de</span>
+                            <span class="block text-primary-600 dark:text-primary-400 xl:inline">Escalas Simplificada</span>
+                        </h1>
+                        <p class="mt-3 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            Controle completo de funcionários, motoristas e veículos em uma plataforma moderna e intuitiva. 
+                            Otimize suas escalas e aumente a produtividade da sua equipe.
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <div class="rounded-md shadow">
+                                <a href="/register" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 md:py-4 md:text-lg md:px-10 transition-colors duration-200">
+                                    Começar Agora
+                                </a>
+                            </div>
+                            <div class="mt-3 sm:mt-0 sm:ml-3">
+                                <a href="#features" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary-700 bg-primary-100 hover:bg-primary-200 dark:text-primary-300 dark:bg-primary-900 dark:hover:bg-primary-800 md:py-4 md:text-lg md:px-10 transition-colors duration-200">
+                                    Saiba Mais
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+            <div class="h-56 w-full bg-gradient-primary sm:h-72 md:h-96 lg:w-full lg:h-full flex items-center justify-center">
+                <div class="text-center text-white">
+                    <svg class="mx-auto h-24 w-24 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    </svg>
+                    <h3 class="text-2xl font-bold">Dashboard Intuitivo</h3>
+                    <p class="mt-2 text-lg opacity-90">Visualize todas as informações importantes em um só lugar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-12 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 dark:text-primary-400 font-semibold tracking-wide uppercase">Funcionalidades</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                    Tudo que você precisa para gerenciar sua equipe
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-300 lg:mx-auto">
+                    Sistema completo com todas as ferramentas necessárias para uma gestão eficiente de escalas e recursos humanos.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <!-- Feature 1 -->
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Gestão de Funcionários</h3>
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                                Cadastre e gerencie todos os funcionários com informações completas, documentos e histórico de atividades.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a4 4 0 118 0v4m-4 8a4 4 0 11-8 0v-1h8v1z" />
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Controle de Motoristas</h3>
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                                Gerencie CNHs, especializações e disponibilidade dos motoristas com alertas automáticos de vencimento.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Gestão de Frota</h3>
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                                Controle completo da frota de veículos com manutenções programadas e histórico de uso.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Escalas Inteligentes</h3>
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                                Crie escalas automaticamente com detecção de conflitos e otimização de recursos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Relatórios Detalhados</h3>
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                                Gere relatórios completos de presença, escalas e performance com exportação em múltiplos formatos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-primary-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white">Interface Responsiva</h3>
+                            <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                                Acesse o sistema de qualquer dispositivo com interface otimizada para desktop e mobile.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-12 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-primary-600 dark:text-primary-400 font-semibold tracking-wide uppercase">Benefícios</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                    Por que escolher o ShiftFlow?
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Benefit 1 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
+                            <span class="text-2xl">⚡</span>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Performance Otimizada</h3>
+                        <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                            Sistema leve e rápido, desenvolvido para funcionar perfeitamente em qualquer dispositivo.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 2 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
+                            <span class="text-2xl">💰</span>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Custo Reduzido</h3>
+                        <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                            Arquitetura otimizada que reduz custos de hospedagem em até 50% comparado a outras soluções.
+                        </p>
+                    </div>
+
+                    <!-- Benefit 3 -->
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto">
+                            <span class="text-2xl">🔒</span>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Segurança Avançada</h3>
+                        <p class="mt-2 text-base text-gray-500 dark:text-gray-300">
+                            Proteção completa dos dados com criptografia e controle de acesso por níveis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary-600 dark:bg-primary-700">
+        <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                <span class="block">Pronto para começar?</span>
+                <span class="block">Crie sua conta gratuitamente.</span>
+            </h2>
+            <p class="mt-4 text-lg leading-6 text-primary-200">
+                Comece a usar o ShiftFlow hoje mesmo e transforme a gestão da sua equipe.
+            </p>
+            <a href="/register" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-white hover:bg-primary-50 sm:w-auto transition-colors duration-200">
+                Criar Conta Gratuita
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <div class="flex items-center">
+                        <h3 class="text-2xl font-bold text-white">🚀 ShiftFlow</h3>
+                    </div>
+                    <p class="text-gray-300 text-base">
+                        Sistema completo para gestão de escalas, funcionários e motoristas. 
+                        Simplifique o controle de turnos da sua empresa.
+                    </p>
+                </div>
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Sistema</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li><a href="/login" class="text-base text-gray-300 hover:text-white">Login</a></li>
+                                <li><a href="/register" class="text-base text-gray-300 hover:text-white">Criar Conta</a></li>
+                                <li><a href="/dashboard" class="text-base text-gray-300 hover:text-white">Dashboard</a></li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">Recursos</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li><span class="text-base text-gray-300">Funcionários</span></li>
+                                <li><span class="text-base text-gray-300">Motoristas</span></li>
+                                <li><span class="text-base text-gray-300">Veículos</span></li>
+                                <li><span class="text-base text-gray-300">Escalas</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 xl:text-center">
+                    &copy; 2025 ShiftFlow. Desenvolvido com ❤️ pela equipe ShiftFlow.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/config.js"></script>
+    <script src="/js/utils/theme.js"></script>
+    <script>
+        // Inicializar botão de tema no header
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeContainer = document.getElementById('theme-toggle-container');
+            if (themeContainer) {
+                const themeToggle = createThemeToggle();
+                themeContainer.appendChild(themeToggle);
+            }
+        });
+    </script>
+</body>
+</html>
+

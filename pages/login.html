@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-gray-50 dark:bg-gray-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ShiftFlow</title>
+    <meta name="description" content="Faça login no ShiftFlow para acessar o sistema de gestão de escalas.">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body class="h-full">
+    <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Header -->
+            <div>
+                <div class="mx-auto h-12 w-12 flex items-center justify-center">
+                    <span class="text-4xl">🚀</span>
+                </div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
+                    ShiftFlow
+                </h2>
+                <p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
+                    Faça login na sua conta
+                </p>
+            </div>
+
+            <!-- Status do Backend -->
+            <div id="backend-status" class="hidden">
+                <div class="rounded-md bg-green-50 dark:bg-green-900 p-4">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm font-medium text-green-800 dark:text-green-200">
+                                ✅ Backend funcionando corretamente!
+                            </p>
+                            <p class="text-xs text-green-700 dark:text-green-300 mt-1">
+                                📍 Servidor: <span id="server-url"></span><br>
+                                🕐 Última verificação: <span id="last-check"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário de Login -->
+            <form id="loginForm" class="mt-8 space-y-6">
+                <div class="rounded-md shadow-sm -space-y-px">
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required 
+                               class="input rounded-t-md" 
+                               placeholder="Seu email">
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Senha</label>
+                        <div class="relative">
+                            <input id="password" name="password" type="password" autocomplete="current-password" required 
+                                   class="input rounded-b-md pr-10" 
+                                   placeholder="Sua senha">
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" data-password-toggle="password">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="remember" name="remember" type="checkbox" 
+                               class="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded">
+                        <label for="remember" class="ml-2 block text-sm text-gray-900 dark:text-gray-300">
+                            Lembrar-me
+                        </label>
+                    </div>
+
+                    <div class="text-sm">
+                        <a href="#" id="forgot-password-link" class="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
+                            Esqueceu a senha?
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn-primary w-full">
+                        Entrar
+                    </button>
+                </div>
+
+                <div class="text-center">
+                    <span class="text-sm text-gray-600 dark:text-gray-400">
+                        Não tem uma conta?
+                        <a href="/register" class="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
+                            Criar conta
+                        </a>
+                    </span>
+                </div>
+            </form>
+
+            <!-- Modal de Recuperação de Senha -->
+            <div id="forgot-password-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
+                <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white dark:bg-gray-800">
+                    <div class="mt-3">
+                        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-primary-100 dark:bg-primary-900">
+                            <svg class="h-6 w-6 text-primary-600 dark:text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-white text-center mt-4">
+                            Recuperar Senha
+                        </h3>
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-500 dark:text-gray-400 text-center">
+                                Digite seu email para receber as instruções de recuperação de senha.
+                            </p>
+                            <form id="forgotPasswordForm" class="mt-4">
+                                <div>
+                                    <label for="forgot-email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                        Email
+                                    </label>
+                                    <input type="email" id="forgot-email" name="email" required
+                                           class="input mt-1"
+                                           placeholder="seu@email.com">
+                                </div>
+                                <div class="flex items-center justify-end space-x-2 mt-6">
+                                    <button type="button" id="cancel-forgot-password" class="btn-outline">
+                                        Cancelar
+                                    </button>
+                                    <button type="submit" class="btn-primary">
+                                        Enviar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão de Tema -->
+            <div class="flex justify-center">
+                <div id="theme-toggle-container"></div>
+            </div>
+
+            <!-- Link para Home -->
+            <div class="text-center">
+                <a href="/" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    ← Voltar para página inicial
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/config.js"></script>
+    <script src="/js/utils/api.js"></script>
+    <script src="/js/utils/forms.js"></script>
+    <script src="/js/utils/notifications.js"></script>
+    <script src="/js/utils/theme.js"></script>
+    <script src="/js/modules/auth.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar botão de tema
+            const themeContainer = document.getElementById('theme-toggle-container');
+            if (themeContainer) {
+                const themeToggle = createThemeToggle();
+                themeContainer.appendChild(themeToggle);
+            }
+
+            // Verificar status do backend
+            checkBackendStatus();
+
+            // Modal de recuperação de senha
+            const forgotPasswordLink = document.getElementById('forgot-password-link');
+            const forgotPasswordModal = document.getElementById('forgot-password-modal');
+            const cancelForgotPassword = document.getElementById('cancel-forgot-password');
+
+            forgotPasswordLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                forgotPasswordModal.classList.remove('hidden');
+            });
+
+            cancelForgotPassword.addEventListener('click', function() {
+                forgotPasswordModal.classList.add('hidden');
+            });
+
+            // Fechar modal ao clicar fora
+            forgotPasswordModal.addEventListener('click', function(e) {
+                if (e.target === forgotPasswordModal) {
+                    forgotPasswordModal.classList.add('hidden');
+                }
+            });
+
+            // Fechar modal com ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !forgotPasswordModal.classList.contains('hidden')) {
+                    forgotPasswordModal.classList.add('hidden');
+                }
+            });
+        });
+
+        // Verificar status do backend
+        async function checkBackendStatus() {
+            try {
+                const response = await fetch(CONFIG.API_BASE_URL + '/health', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const statusDiv = document.getElementById('backend-status');
+                    const serverUrl = document.getElementById('server-url');
+                    const lastCheck = document.getElementById('last-check');
+
+                    if (statusDiv && serverUrl && lastCheck) {
+                        statusDiv.classList.remove('hidden');
+                        serverUrl.textContent = CONFIG.API_BASE_URL;
+                        lastCheck.textContent = new Date().toLocaleString('pt-BR');
+                    }
+                }
+            } catch (error) {
+                console.log('Backend não está respondendo:', error);
+            }
+        }
+    </script>
+</body>
+</html>
+

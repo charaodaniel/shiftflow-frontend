@@ -1,0 +1,38 @@
+{
+  "name": "shiftflow-frontend",
+  "version": "2.0.0",
+  "description": "Frontend do sistema ShiftFlow refatorado - HTML5, Tailwind CSS e JavaScript puro",
+  "main": "index.html",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./public/css/style.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./public/css/style.css --watch",
+    "start": "python3 -m http.server 3000",
+    "preview": "npm run build && npm run start"
+  },
+  "keywords": [
+    "shiftflow",
+    "escalas",
+    "gestao",
+    "motoristas",
+    "frontend",
+    "html5",
+    "tailwind",
+    "javascript"
+  ],
+  "author": "ShiftFlow Team",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.3.6",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/shiftflow-frontend.git"
+  },
+  "homepage": "https://shiftflow-frontend.vercel.app",
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
+
