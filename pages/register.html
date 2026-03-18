@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full bg-gray-50 dark:bg-gray-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - ShiftFlow</title>
+    <meta name="description" content="Crie sua conta no ShiftFlow para começar a gerenciar suas escalas.">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body class="h-full">
+    <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Header -->
+            <div>
+                <div class="mx-auto h-12 w-12 flex items-center justify-center">
+                    <span class="text-4xl">🚀</span>
+                </div>
+                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
+                    ShiftFlow
+                </h2>
+                <p class="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
+                    Crie sua conta
+                </p>
+            </div>
+
+            <!-- Formulário de Registro -->
+            <form id="registerForm" class="mt-8 space-y-6">
+                <div class="rounded-md shadow-sm -space-y-px">
+                    <div>
+                        <label for="name" class="sr-only">Nome</label>
+                        <input id="name" name="name" type="text" autocomplete="name" required 
+                               class="input rounded-t-md" 
+                               placeholder="Seu nome completo">
+                    </div>
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required 
+                               class="input" 
+                               placeholder="Seu email">
+                    </div>
+                    <div>
+                        <label for="password" class="sr-only">Senha</label>
+                        <div class="relative">
+                            <input id="password" name="password" type="password" autocomplete="new-password" required 
+                                   class="input pr-10" 
+                                   placeholder="Sua senha">
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" data-password-toggle="password">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="confirm-password" class="sr-only">Confirmar Senha</label>
+                        <div class="relative">
+                            <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" required 
+                                   class="input rounded-b-md pr-10" 
+                                   placeholder="Confirme sua senha">
+                            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center" data-password-toggle="confirm-password">
+                                <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="btn-primary w-full">
+                        Criar Conta
+                    </button>
+                </div>
+
+                <div class="text-center">
+                    <span class="text-sm text-gray-600 dark:text-gray-400">
+                        Já tem uma conta?
+                        <a href="/login" class="font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300">
+                            Fazer login
+                        </a>
+                    </span>
+                </div>
+            </form>
+
+            <!-- Botão de Tema -->
+            <div class="flex justify-center">
+                <div id="theme-toggle-container"></div>
+            </div>
+
+            <!-- Link para Home -->
+            <div class="text-center">
+                <a href="/" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                    ← Voltar para página inicial
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/config.js"></script>
+    <script src="/js/utils/api.js"></script>
+    <script src="/js/utils/forms.js"></script>
+    <script src="/js/utils/notifications.js"></script>
+    <script src="/js/utils/theme.js"></script>
+    <script src="/js/modules/auth.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar botão de tema
+            const themeContainer = document.getElementById('theme-toggle-container');
+            if (themeContainer) {
+                const themeToggle = createThemeToggle();
+                themeContainer.appendChild(themeToggle);
+            }
+        });
+    </script>
+</body>
+</html>
